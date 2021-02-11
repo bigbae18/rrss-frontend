@@ -1,0 +1,21 @@
+.navbar-a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #fff;
+    padding: 1em;
+}
+.navbar-a:hover {
+    transform: scale(1.1);
+    transition: 120ms ease-in-out;
+    background-color: #111;
+    font-weight: 500;
+}
+.navbar-container {
+    width: 100vw;
+    height: 8vh;
+    background-color: #333;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align:center;
+}

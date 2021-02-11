@@ -1,0 +1,53 @@
+.login-container {
+    width: 100vw;
+    height: 92vh;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    background-color: #eee;
+}
+.login-button {
+    border-radius: 10px;
+    border: 1px solid #444;
+    cursor: pointer;
+    background: transparent;
+    align-self: center;
+    width: 10vw;
+    height: 5vh;
+    margin-top: 1vh;
+    transition: all 0.5s;
+}
+.login-button:hover {
+    transform: scale(1.1);
+    background-color: #444;
+    color: white;
+    font-weight: 600;
+}
+.redirect-log-a {
+    text-decoration: none;
+    color: blue;
+}
+.redirect-log-a:hover {
+    color: dodgerblue;
+}
+.not-account-p {
+    font-size: 0.9em;
+}
+.login-form {
+    width: 30vw;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.login-form > input {
+    margin: 1.2vh;
+    padding: 1vh;
+    border: 0;
+    border-bottom: 1px solid aquamarine
+}
+.login-form > input:focus {
+    border: 0;
+    border-bottom: 2px solid aqua;
+}
