@@ -1,3 +1,16 @@
+function validateLoginInfo(values) {
+    let errors = {}
+    if (!values.username.trim()) {
+        errors.username = "Username required!"
+    }
+    if (!values.password) {
+        errors.password = "Password required!"
+    } else if (values.password.length < 6) {
+        errors.password = "Password must be longer than 6 characters!"
+    }
+    return errors;
+}
+
 export default function validateRegisterInfo(values) {
     let errors = {};
 
@@ -22,3 +35,4 @@ export default function validateRegisterInfo(values) {
 
     return errors;
 }
+export const validateLogin = validateLoginInfo;

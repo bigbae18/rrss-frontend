@@ -5,10 +5,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #eee;
+    background-color: #ddd;
 }
 .register-form {
-    width: 30vw;
+    width: 60vw;
     height: 42vh;
     display: flex;
     flex-direction: column;
@@ -30,7 +30,7 @@
     cursor: pointer;
     background: transparent;
     align-self: center;
-    width: 10vw;
+    width: 20vw;
     height: 5vh;
     margin-top: 1vh;
     transition: all 0.5s;
@@ -52,6 +52,12 @@
     margin: 0;
     color: red;
     font-size: 0.7em;
+}
+.error-db {
+    margin: 0;
+    color: red;
+    font-size: 0.85em;
+    text-align:center;
 }
 .signed-up-p {
     font-size: 0.9em;

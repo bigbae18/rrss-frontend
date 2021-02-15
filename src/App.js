@@ -3,18 +3,15 @@ import Home from './components/Home/Home'
 import Register from './components/Register/Register';
 import Navbar from './components/Navbar/Navbar';
 import Login from './components/Login/Login';
-import RegisterSuccess from './components/Register/RegisterSuccess';
+import { AuthProvider } from './hooks/useAuth';
 
 const App = () => {
   return (
-    <div>
+    <AuthProvider>
       <Navbar/>
       <Switch>
         <Route exact path="/register">
           <Register />
-        </Route>
-        <Route exact path="/reg-success">
-          <RegisterSuccess />
         </Route>
         <Route exact path ="/login">
           <Login />
@@ -23,7 +20,7 @@ const App = () => {
           <Home />
         </Route>
       </Switch>
-    </div>
+    </AuthProvider>
   );
 }
 
