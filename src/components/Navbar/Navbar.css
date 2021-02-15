@@ -10,6 +10,16 @@
     background-color: #111;
     font-weight: 500;
 }
+.navbar-p {
+    color: #fff;
+}
+.navbar-user {
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0.5em;
+    color: #fff;
+    font-weight: 500;
+}
 .navbar-container {
     width: 100vw;
     height: 8vh;

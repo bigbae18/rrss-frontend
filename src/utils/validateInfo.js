@@ -1,4 +1,4 @@
-function validateLoginInfo(values) {
+export const validateLoginInfo = (values) => {
     let errors = {}
     if (!values.username.trim()) {
         errors.username = "Username required!"
@@ -35,4 +35,3 @@ export default function validateRegisterInfo(values) {
 
     return errors;
 }
-export const validateLogin = validateLoginInfo;

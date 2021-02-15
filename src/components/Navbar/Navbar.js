@@ -11,15 +11,14 @@ const Navbar = () => {
     return (
         <div className="navbar-container">
             <Link to="/" className="navbar-a">Home</Link>
-            {auth.user 
-            ?
-            <Link to="#" className="navbar-a">Account</Link>
-            :
+            {auth.user ? (
+                <p className="navbar-p">Welcome, <Link to="#" className="navbar-user">{auth.user}</Link></p>
+            ) : (
             <>
-            <Link to="/register" className="navbar-a">Register</Link>
-            <Link to="/login" className="navbar-a">Login</Link>
+                <Link to="/register" className="navbar-a">Register</Link>
+                <Link to="/login" className="navbar-a">Login</Link>
             </>
-            }
+            )}
             
         </div>
     )

@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
+import LoginSuccess from './LoginSuccess';
 import Loading from '../../utils/LoadingCircle/Loading';
-import validateLogin from '../../utils/validateInfo';
+import { validateLoginInfo } from '../../utils/validateInfo';
 import './Login.css';
 
 const Login = () => {
@@ -11,14 +13,31 @@ const Login = () => {
     const [submitted, setSubmitted] = useState(false);
     const [errors, setErrors] = useState({})
 
+    const auth = useAuth();
+
     useEffect(() => {
+        setSubmitting(false);
+        console.log('in useeffect');
         if (Object.keys(errors).length === 0 && submitting) {
+            console.log('no errors');
             submit();
+            setSubmitting(true);
         }
     }, [errors])
 
-    const submit = () => {
-        // code login axios request
+    const submit = async () => {
+        console.log('in submit');
+        await auth.signIn({ username, password }).then(() => {
+            console.log('in then submit');
+            setSubmitting(false);
+            setSubmitted(true);
+            console.log(auth);
+        }).catch(err => {
+            setErrors({
+                ...errors,
+                database: err
+            })
+        })
     }
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -26,34 +45,47 @@ const Login = () => {
             username: username,
             password: password
         }
-        setErrors(validateLogin(values));
+        console.log('handleSubmit');
+        setErrors(validateLoginInfo(values));
         setSubmitting(true);
     }
 
     return (
-        <div className="login-container">
-            <h1>Login with your account</h1>
-            <div className="login-form">
-                <input
-                    placeholder="Username..."
-                    required
-                    type="text"
-                    onChange={(e) => {
-                        setUsername(e.target.value);
-                    }} 
-                    />
-                <input
-                    placeholder="Password..."
-                    required
-                    type="password"
-                    onChange={(e) => {
-                        setPassword(e.target.value);
-                    }} 
-                    />
-                <button className="login-button" onClick={handleSubmit}>Login!</button>
-            </div>
-            <p className="not-acount-p">You don't have an account? <Link to="/register" className="redirect-log-a">Register now</Link>!</p>
-        </div>
+        <>
+            {submitted ?
+                <LoginSuccess />
+            :
+                <div className="login-container">
+                    <h1>Login with your account</h1>
+                    <div className="login-form">
+                        {submitting 
+                        ? (<Loading />)
+                        : 
+                        <>
+                        <input
+                            placeholder="Username..."
+                            required
+                            type="text"
+                            onChange={(e) => {
+                                setUsername(e.target.value);
+                            }} 
+                            />
+                        <input
+                            placeholder="Password..."
+                            required
+                            type="password"
+                            onChange={(e) => {
+                                setPassword(e.target.value);
+                            }} 
+                            />
+                        <button className="login-button" onClick={handleSubmit}>Login!</button>
+                        </>
+                        }
+                    </div>
+                    <p className="not-acount-p">You don't have an account? <Link to="/register" className="redirect-log-a">Register now</Link>!</p>
+                </div>
+            }
+        </>
     )
 }
 
