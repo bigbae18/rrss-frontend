@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-import LoginSuccess from './LoginSuccess';
 import Loading from '../../utils/LoadingCircle/Loading';
 import { validateLoginInfo } from '../../utils/validateInfo';
 import './Login.css';
@@ -28,10 +27,8 @@ const Login = () => {
     const submit = async () => {
         console.log('in submit');
         await auth.signIn({ username, password }).then(() => {
-            console.log('in then submit');
             setSubmitting(false);
             setSubmitted(true);
-            console.log(auth);
         }).catch(err => {
             setErrors({
                 ...errors,
@@ -53,7 +50,7 @@ const Login = () => {
     return (
         <>
             {submitted ?
-                <LoginSuccess />
+                <Redirect to="/" />
             :
                 <div className="login-container">
                     <h1>Login with your account</h1>
@@ -62,23 +59,24 @@ const Login = () => {
                         ? (<Loading />)
                         : 
                         <>
-                        <input
-                            placeholder="Username..."
-                            required
-                            type="text"
-                            onChange={(e) => {
-                                setUsername(e.target.value);
-                            }} 
-                            />
-                        <input
-                            placeholder="Password..."
-                            required
-                            type="password"
-                            onChange={(e) => {
-                                setPassword(e.target.value);
-                            }} 
-                            />
-                        <button className="login-button" onClick={handleSubmit}>Login!</button>
+                            {errors.database && <p className="error-db">{errors.database}</p>}
+                            <input
+                                placeholder="Username..."
+                                required
+                                type="text"
+                                onChange={(e) => {
+                                    setUsername(e.target.value);
+                                }} 
+                                />
+                            <input
+                                placeholder="Password..."
+                                required
+                                type="password"
+                                onChange={(e) => {
+                                    setPassword(e.target.value);
+                                }} 
+                                />
+                            <button className="login-button" onClick={handleSubmit}>Login!</button>
                         </>
                         }
                     </div>

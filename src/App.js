@@ -3,6 +3,7 @@ import Home from './components/Home/Home'
 import Register from './components/Register/Register';
 import Navbar from './components/Navbar/Navbar';
 import Login from './components/Login/Login';
+import Profile from './components/Profile/Profile';
 import { AuthProvider } from './hooks/useAuth';
 
 const App = () => {
@@ -13,8 +14,11 @@ const App = () => {
         <Route exact path="/register">
           <Register />
         </Route>
-        <Route exact path ="/login">
+        <Route exact path="/login">
           <Login />
+        </Route>
+        <Route exact path="/profile/:id">
+          <Profile />
         </Route>
         <Route exact path="/">
           <Home />

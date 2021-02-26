@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from 'react';
 import Axios from 'axios';
 
-const APIurl = "http://localhost:3001";
+const APIurl = "http://192.168.1.14:3001";
 const authContext = createContext();
 
 export const useAuth = () => {
@@ -15,6 +15,7 @@ export const AuthProvider = ({ children }) => {
 
 const useAuthProvider = () => {
     const [user, setUser] = useState(null);
+    const [loggedIn, setLoggedIn] = useState(sessionStorage.getItem('loggedIn'));
 
     const signUp = (values) => new Promise((resolve, reject) => {
         const { username, password, email } = values;
@@ -43,11 +44,19 @@ const useAuthProvider = () => {
             username: username,
             password: password
         }).then(res => {
-            const { username } = res.data;
-            setUser(username);
+            const { id, username } = res.data;
+            setUser({
+                id: id,
+                username: username
+            });
+            sessionStorage.setItem('loggedIn', 'true');
+            setLoggedIn(true);
             return resolve(username);
         }).catch(err => {
             const { status } = err.response;
+
+            sessionStorage.setItem('loggedIn', 'false');
+            setLoggedIn(false);
 
             switch(status) {
                 case 500:
@@ -59,10 +68,17 @@ const useAuthProvider = () => {
             }
         })
     })
+    const signOut = () => {
+        setUser(null);
+        setLoggedIn(false);
+        sessionStorage.setItem('loggedIn', 'false');
+    }
 
     return {
         user: user,
+        loggedIn: loggedIn,
         signUp,
-        signIn
+        signIn,
+        signOut
     }
 }

@@ -1,3 +1,15 @@
+::-webkit-scrollbar {
+    width: 0.7vw;
+}
+::-webkit-scrollbar-track {
+    background-color: #ccc;
+}
+::-webkit-scrollbar-thumb {
+    background-color: cadetblue;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: aquamarine;
+}
 .home-container {
     width: 100vw;
     height: 92vh;
@@ -5,4 +17,83 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.posts {
+    width: 68vw;
+    height: 92vh;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+.post-container {
+    height: 20vh;
+    width: 60vw fit-content;
+    display: flex;
+    border-radius: 25px;
+    padding: 2vh 2vw;
+    border: 2px aquamarine solid;
+    flex-direction: column;
+    background-color: #ddd;
+    align-items: space-between;
+    margin: 2vh 2vw;
+    font-size: 0.5em;
+}
+.author-name {
+    font-size: 0.7em;
+    height: 25%;
+    justify-self: center;
+}
+.author {
+    color: crimson
+}
+.body {
+    background-color: #fff;
+    border-radius: 25px;
+    padding: 2vh 2vw;
+    height: 50% fit-content;
+}
+.profile {
+    width: 32vw;
+    height: 92vh;
+    font-size: 0.3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    border: 1px solid aquamarine;
+    border-radius: 1%;
+    padding: 0 5vh;
+}
+.profile h1 {
+    font-size: 1.6em;
+    font-weight: 700;
+    margin-bottom: 5vh;
+}
+.profile h3 {
+    font-size: 1.1em;
+    font-weight: 500;
+}
+.profile p {
+    font-size: 1em;
+    font-weight: 300;
+}
+.profile a {
+    text-decoration: none;
+    color: blue;
+}
+.profile a:hover {
+    color: dodgerblue;
+}
+.data-container code {
+    background-color: lightgray;
+    padding: 1%;
+    border-radius: 2%;
+    color: crimson;
+    border: 0px solid;
+}
+.data-container code:hover {
+    text-decoration: underline;
+}
+.data-container p {
+    font-size: 1.1em;
 }

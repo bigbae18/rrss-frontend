@@ -1,0 +1,9 @@
+textarea {
+    resize: none;
+    width: 20vw;
+    height: 5vh;
+    font-size: 0.9em;
+}
+.create-post-container button {
+    margin-top: 2vh;
+}

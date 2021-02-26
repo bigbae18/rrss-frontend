@@ -1,0 +1,15 @@
+.engagement {
+    padding: 2vh 1vw;
+    display: flex;
+    justify-content: space-around;
+    width: 15vw;
+    height: 25%
+}
+.engagement button {
+    border: 0;
+    cursor:pointer;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 2.5vw;
+    height: 2.5vh;
+}
