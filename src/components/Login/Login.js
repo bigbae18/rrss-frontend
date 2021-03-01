@@ -68,6 +68,7 @@ const Login = () => {
                                     setUsername(e.target.value);
                                 }} 
                                 />
+                            {errors.username && <p className="error-p">{errors.username}</p>}
                             <input
                                 placeholder="Password..."
                                 required
@@ -76,6 +77,7 @@ const Login = () => {
                                     setPassword(e.target.value);
                                 }} 
                                 />
+                            {errors.password && <p className="error-p">{errors.password}</p>}
                             <button className="login-button" onClick={handleSubmit}>Login!</button>
                         </>
                         }

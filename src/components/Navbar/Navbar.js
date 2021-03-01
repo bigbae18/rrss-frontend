@@ -12,7 +12,7 @@ const Navbar = () => {
         <div className="navbar-container">
             <Link to="/" className="navbar-a">Home</Link>
             {auth.user ? (
-                <p className="navbar-p">Welcome, <Link to={`/profile/${auth.user.id}`} className="navbar-user">{auth.user.username}</Link></p>
+                <p className="navbar-p">Welcome, <Link to={`/me`} className="navbar-user">{auth.user.username}</Link></p>
             ) : (
             <>
                 <Link to="/register" className="navbar-a">Register</Link>

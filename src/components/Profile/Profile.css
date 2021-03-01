@@ -1,0 +1,75 @@
+.profile-container {
+    width: 100vw;
+    height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.profile-info-container {
+    width: 50vw;
+    border-radius: 10px;
+    border: 1.5px crimson solid;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 40vh;
+}
+.profile-info-container h1 {
+    font-size: 2em;
+}
+.profile-info-container h3 {
+    margin: 1vh 1vw;
+}
+.p-post-container {
+    overflow: auto;
+}
+.profile-info-container button {
+    width: 10vw;
+    color: white;
+    background-color: red;
+    border: 1px solid crimson;
+    cursor: pointer;
+    height: 5vh;
+}
+.profile-info-container code {
+    background-color: lightgray;
+    padding: 1%;
+    border-radius: 2%;
+    font-size: 1.5em;
+    color: crimson;
+    border: 0px solid;
+}
+.profile-info-container code:hover {
+    text-decoration: underline;
+}
+.uploads-container {
+    width: 90vw;
+    height: 40vh;
+    overflow: auto;
+}
+.profile-posts-container {
+    width: 85vw;
+    margin: 1vh 1vw;
+    background-color: #eee;
+    padding: 1vh 1vw;
+    border-radius: 25px;
+}
+.profile-author {
+    font-size: 0.8em;
+    padding: 1vh 1vw;
+}
+.profile-author code {
+    font-size: 1em;
+    color: crimson;
+}
+.profile-body {
+    padding: 1.5vh 1.5vw;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid aquamarine;
+    border-radius: 25px;
+}

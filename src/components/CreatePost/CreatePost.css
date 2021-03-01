@@ -5,5 +5,19 @@ textarea {
     font-size: 0.9em;
 }
 .create-post-container button {
+    border-radius: 10px;
+    border: 1px solid #555;
+    color: crimson;
     margin-top: 2vh;
+    cursor: pointer;
+    background: transparent;
+    width: 10vw;
+    height: 5vh;
+    transition: all 0.5s;
+}
+.create-post-container button:hover {
+    transform: scale(1.05);
+    background-color: #555;
+    color: white;
+    border: 1px solid white;
 }

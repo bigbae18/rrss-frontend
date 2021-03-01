@@ -1,38 +1,30 @@
-import Axios from 'axios';
-import { useEffect, useState } from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
+import ProfileInfo from './ProfileInfo';
 import './Profile.css';
+import ProfileUploads from './ProfileUploads';
 
 const APIurl = 'http://localhost:3001';
 
 const Profile = () => {
 
-    const [errors, setErrors] = useState({});
-    const { user, signOut } = useAuth();
-    const { id } = useParams();
-
-    useEffect(() => {
-        Axios.get(`${APIurl}/user/id/${id}`)
-    })
+    // const [errors, setErrors] = useState({});
+    const auth = useAuth();
 
     const handleLogout = e => {
         e.preventDefault();
 
-        signOut();
+        auth.signOut();
     }
 
     return (
         <>
-        { user 
+        { !auth.user 
             ? <Redirect to="/" />
             : (
                 <div className="profile-container">
-                    <h1>Welcome, <code>{user.username}</code></h1>
-                    <h3>From here you will be able to Log Out from your account.</h3>
-
-                    <button className="logout-button" onClick={handleLogout}>Log Out</button>
-                    <p>In the future, you will be able to upload your profile picture even personal information!</p>
+                    <ProfileInfo logout={handleLogout} />
+                    <ProfileUploads />     
                 </div>
             )
         }
